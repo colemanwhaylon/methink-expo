@@ -1,56 +1,70 @@
-# Welcome to your Expo app 👋
+# MeTHiNK
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A faithful recreation of the original **MeTHiNK** mobile app — rebuilt as a single
+**universal Expo app** that runs on **web, iOS, and Android** from one codebase, with
+**no backend**.
 
-## Get started
+The original was a 2016–2019 Appcelerator Titanium app (a published instance of the
+appmakr / InfiniteMonkeys white‑label builder, `app_id 103601342`). This project
+reverse‑engineers that app's bundled content + config and reimplements its screens on
+a modern, native‑feeling stack: **Expo SDK 56 + Expo Router + React Native Web**.
 
-1. Install dependencies
+## Screens
 
-   ```bash
-   npm install
-   ```
+All nine pages the original app enabled, plus Home and About:
 
-2. Start the app
+| Screen | Content (all bundled, static) |
+| --- | --- |
+| **Home** | Grid menu of the modules below |
+| **Catalog** | "Mind / Body / Soul" — image + description + YouTube video per item |
+| **Docs** | 7 bundled PDFs (Herbal, Tai Chi, Diamond Sutra, Book of Tea, Wicca, Hindu, Mormonism) |
+| **Call** | Click‑to‑call contact (`tel:`) |
+| **Bible / Quran / Torah** | Full offline readers — 66 + 114 + 5 books, chapter selector, selectable verses |
+| **Menu** | Embedded external web page |
+| **Twitter** | Embedded `@reubenremone` X timeline (with open‑in‑browser fallback) |
+| **Music** | "Tupac The Greatest" album — 8 bundled MP3s with a full audio player |
+| **About** | App info + contact |
 
-   ```bash
-   npx expo start
-   ```
+## Architecture
 
-In the output, you'll find options to open the app in a
+- **Single source of truth:** [`src/config/appConfig.ts`](src/config/appConfig.ts) is a typed
+  port of the original `var2.json` (theme colors, page list/order, and all content). Screens
+  are config‑driven — adding/changing content means editing config, not components.
+- **Scripture data:** the three datasets live under `assets/data/`. A generator
+  ([`scripts/gen-data.mjs`](scripts/gen-data.mjs)) emits `src/data/scripture.generated.ts` with
+  a lazy `import()` loader per book, so each of the 185 books is code‑split into its own chunk
+  (loaded on demand) rather than eagerly bundled.
+- **Shared shell:** `Screen`, `GridTile`, `ListRow`, and `EmbeddedWeb` (iframe on web /
+  `react-native-webview` on native) keep every screen consistent.
+- **No backend, no auth, no cart** — everything is bundled static assets.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Develop
 
 ```bash
-npm run reset-project
+npm install
+npm run gen:data   # regenerate scripture loaders (only needed if assets/data changes)
+npm run web        # or: npm run ios / npm run android
+npm run typecheck
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Deploy to Vercel (static, no server)
 
-### Other setup steps
+The web build is a pure static export, so no serverless functions are required.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npm run build:web   # expo export -p web  ->  ./dist
+```
 
-## Learn more
+[`vercel.json`](vercel.json) is preconfigured (`buildCommand: expo export -p web`,
+`outputDirectory: dist`, `framework: null`, SPA rewrites + clean URLs). Importing this repo
+into Vercel deploys it as‑is.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Tech
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Expo SDK 56 · Expo Router · React 19 · React Native 0.85 · React Native Web 0.21 ·
+expo-audio · react-native-webview · TypeScript (strict).
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+*Content and branding are reproduced from the original MeTHiNK app for the purpose of
+recreating it. The original media assets remain the property of their respective owners.*

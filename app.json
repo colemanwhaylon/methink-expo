@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "methink-expo",
-    "slug": "methink-expo",
+    "name": "MeTHiNK",
+    "slug": "methink",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

@@ -1,8 +1,9 @@
-import { StyleSheet, View } from 'react-native';
+import { Link } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { GridTile } from '@/components/GridTile';
 import { Screen } from '@/components/Screen';
-import { pages, type Page } from '@/config/appConfig';
+import { pages, theme, type Page } from '@/config/appConfig';
 
 /** Route for a home tile, derived from the page kind. */
 function hrefFor(page: Page): string {
@@ -32,6 +33,12 @@ export default function Home() {
             : null}
         </View>
       ))}
+
+      <Link href="/about" asChild>
+        <Pressable accessibilityRole="button" style={styles.aboutLink} hitSlop={8}>
+          <Text style={styles.aboutText}>About MeTHiNK</Text>
+        </Pressable>
+      </Link>
     </Screen>
   );
 }
@@ -39,4 +46,6 @@ export default function Home() {
 const styles = StyleSheet.create({
   row: { flexDirection: 'row' },
   spacer: { flex: 1, margin: 6 },
+  aboutLink: { alignSelf: 'center', marginTop: 18, paddingVertical: 8, paddingHorizontal: 16 },
+  aboutText: { color: theme.colors.text, fontSize: 14, textDecorationLine: 'underline', opacity: 0.9 },
 });
