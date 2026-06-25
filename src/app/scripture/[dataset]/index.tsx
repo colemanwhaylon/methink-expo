@@ -31,6 +31,11 @@ function chunk<T>(items: T[], size: number): (T | null)[][] {
   return rows;
 }
 
+/** Prerender one book-list page per dataset (real content + SEO + no hydration mismatch). */
+export async function generateStaticParams(): Promise<{ dataset: string }[]> {
+  return (Object.keys(SCRIPTURES) as DatasetId[]).map((dataset) => ({ dataset }));
+}
+
 export default function BookListScreen() {
   const { dataset } = useLocalSearchParams<{ dataset: DatasetId }>();
   const r = useResponsive('read');

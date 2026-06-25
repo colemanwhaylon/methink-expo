@@ -13,8 +13,19 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { PageNavigator } from '@/components/PageNavigator';
 import { Screen } from '@/components/Screen';
 import { theme } from '@/config/appConfig';
-import { loadBook, type Chapter, type DatasetId } from '@/data/scripture.generated';
+import { SCRIPTURES, loadBook, type Chapter, type DatasetId } from '@/data/scripture.generated';
 import { useResponsive } from '@/theme/responsive';
+
+/** Prerender every book of every dataset (real titles + SEO + no hydration mismatch). */
+export async function generateStaticParams(): Promise<{ dataset: string; book: string }[]> {
+  const params: { dataset: string; book: string }[] = [];
+  for (const ds of Object.values(SCRIPTURES)) {
+    for (const t of ds.testaments) {
+      for (const book of t.books) params.push({ dataset: ds.id, book });
+    }
+  }
+  return params;
+}
 
 export default function ReaderScreen() {
   const { dataset, book } = useLocalSearchParams<{ dataset: DatasetId; book: string }>();

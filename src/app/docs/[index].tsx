@@ -16,6 +16,11 @@ import { Screen } from '@/components/Screen';
 import { getPage, theme, type DocsPage } from '@/config/appConfig';
 import { useResponsive } from '@/theme/responsive';
 
+/** Prerender one page per bundled document. */
+export async function generateStaticParams(): Promise<{ index: string }[]> {
+  return (getPage('docs') as DocsPage).documents.map((_, i) => ({ index: String(i) }));
+}
+
 export default function DocViewerScreen() {
   const { index } = useLocalSearchParams<{ index: string }>();
   const doc = (getPage('docs') as DocsPage).documents[Number(index)];

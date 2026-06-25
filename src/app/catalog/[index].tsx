@@ -14,6 +14,11 @@ import { Screen } from '@/components/Screen';
 import { getPage, theme, type CatalogPage } from '@/config/appConfig';
 import { useResponsive } from '@/theme/responsive';
 
+/** Prerender one page per catalog item. */
+export async function generateStaticParams(): Promise<{ index: string }[]> {
+  return (getPage('catalog') as CatalogPage).items.map((_, i) => ({ index: String(i) }));
+}
+
 export default function CatalogItemScreen() {
   const { index } = useLocalSearchParams<{ index: string }>();
   const item = (getPage('catalog') as CatalogPage).items[Number(index)];
