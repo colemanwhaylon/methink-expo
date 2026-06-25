@@ -1,0 +1,40 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "62 Al-Jumu`ah"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Whatever is in the heavens and on earth, doth declare the Praises and Glory of Allah,- the Sovereign, the Holy One, the Exalted in Might, the Wise.",
+                           "It is He Who has sent amongst the Unlettered a messenger from among themselves, to rehearse to them His Signs, to purify them, and to instruct them in Book and Wisdom,- although they had been, before, in manifest error;-",
+                           "Such is the Bounty of Allah, which He bestows on whom He will: and Allah is the Lord of the highest bounty.",
+                           "The similitude of those who were entrusted with the (obligations of) Taur?t (Mosaic Law), but who subsequently failed in those (obligations), is that of a donkey which carries huge tomes (but understands them not). Evil is the similitude of people who falsify the Signs of Allah: and Allah guides not people who do wrong.",
+                           "Say: \"O ye of Jewry! If ye think that ye are friends to Allah, to the exclusion of (other) men, then express your desire for Death, if ye are truthful!\"",
+                           "But never will they express their desire (for Death), because of the (deeds) their hands have sent on before them! and Allah knows well those that do wrong!",
+                           "Say: \"The Death from which ye flee will truly overtake you: then will ye be sent back to the Knower of things secret and open: and He will tell you the things that ye did!\"",
+                           "O ye who believe! When the call is proclaimed to prayer on Friday (the Day of Assembly), hasten earnestly to the Remembrance of Allah, and leave off business (and traffic): That is best for you if ye but knew!",
+                           "And when the Prayer is finished, then may ye disperse through the land, and seek of the Bounty of Allah: and remember Allah frequently that ye may prosper.",
+                           "But when they see some bargain or some pastime, they disperse headlong to it, and leave thee standing. Say: \"That which Allah has is better than any pastime or bargain! and Allah is the Best to provide (for all needs).\""
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

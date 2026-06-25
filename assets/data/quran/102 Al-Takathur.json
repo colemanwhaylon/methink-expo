@@ -1,0 +1,38 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "102 Al-Takathur"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Abundance diverts you,",
+                           "Until you come to the graves.",
+                           "Nay! you shall soon know,",
+                           "Nay! Nay! you shall soon know.",
+                           "Nay! if you had known with a certain knowledge,",
+                           "You should most certainly have seen the hell;",
+                           "Then you shall most certainly see it with the eye of certainty;",
+                           "Then on that day you shall most certainly be questioned about the boons."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

@@ -1,0 +1,41 @@
+{
+  "bible": {
+    "@attributes": {
+      "translation": "English"
+    },
+    "testament": [
+      {
+        "@attributes": {
+          "name": "New"
+        },
+        "book": [
+          {
+            "@attributes": {
+              "name": "B'reshit"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "Sh'mot"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "Vayyikra"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "Bemidbar"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "D'varim"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

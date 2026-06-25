@@ -1,0 +1,586 @@
+{
+  "bible": {
+    "@attributes": {
+      "translation": "English"
+    },
+    "testament": [
+      {
+        "@attributes": {
+          "name": "Suras"
+        },
+        "book": [
+          {
+            "@attributes": {
+              "name": "1 Al-Fatihah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "2 Al-Baqarah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "3 Aal-e-`Imran"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "4 Al-Nisa'"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "5 Al-Ma'idah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "6 Al-An`am"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "7 Al-A`raf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "8 Al-Anfal"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "9 Al-Taubah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "10 Yunus"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "11 Hud"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "12 Yusuf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "13 Al-Ra`d"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "14 Ibrahim"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "15 Al-Hijr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "16 Al-Nahl"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "17 Bani Isra'il"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "18 Al-Kahf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "19 Maryam"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "20 Ta Ha"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "21 Al-Anbiya'"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "22 Al-Hajj"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "23 Al-Mu'minun"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "24 Al-Nur"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "25 Al-Furqan"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "26 Al-Shu`ara'"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "27 Al-Naml"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "28 Al-Qasas"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "29 Al-`Ankabut "
+            }
+          },
+          {
+            "@attributes": {
+              "name": "30 Al-Rum"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "31 Luqman"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "32 Al-Sajdah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "33 Al-Ahzab"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "34 Al-Saba'"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "35 Al-Fatir"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "36 Ya Sin"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "37 Al-Saffat"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "38 Sad"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "39 Al-Zumar"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "40 Al-Mu'min"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "41 Ha Mim Al-Sajdah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "42 Al-Shura"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "43 Al-Zukhruf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "44 Al-Dukhan"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "45 Al-Jathiyah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "46 Al-Ahqaf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "47 Muhammad"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "48 Al-fath"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "49 Al-Hujurat"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "50 Qaf"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "51 Al-Dhariyat"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "52 Al-Tur"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "53 Al-Najm"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "54 Al-Qamar"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "55 Al-Rahman"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "56 Al-Waqi`ah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "57 Al-Hadid "
+            }
+          },
+          {
+            "@attributes": {
+              "name": "58 Al-Mujaadilah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "59 Al-Hashr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "60 Al-Mumtahanah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "61 Al-Saff"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "62 Al-Jumu`ah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "63 Al-Munafiqun"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "64 Al-Taghabun"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "65 Al-Talaq"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "66 Al-Tahrim"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "67 Al-Mulk"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "68 Al-Qalam"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "69 Al-Haqqah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "70 Al-Ma`arij"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "71 Nooh"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "72 Al-Jinn"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "73 Al-Muzzammil"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "74 Al-Muddaththir"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "75 Al-Qiyamah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "76 Al-Dahr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "77 Al-Mursalat"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "78 Al-Naba'"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "79 Al-Nazi`at"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "80 `Abasa"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "81 Al-Takwir"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "82 Al-Infitar"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "83 Al-Tatfif"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "84 Al-Inshiqaq"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "85 Al-Buruj "
+            }
+          },
+          {
+            "@attributes": {
+              "name": "86 Al-Tariq"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "87 Al-A`la"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "88 Al-Ghashiyah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "89 Al-Fajr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "90 Al-Balad"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "91 Al-Shams"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "92 Al-Lail"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "93 Al-Duha"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "94 Al-Inshirah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "95 Al-Tin"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "96 Al-`Alaq"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "97 Al-Qadr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "98 Al-Bayyinah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "99 Al-Zilzal"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "100 Al-`Adiyat"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "101 Al-Qari`ah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "102 Al-Takathur"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "103 Al-`Asr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "104 Al-Humazah"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "105 Al-Fil"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "106 Al-Quraish"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "107 Al-Ma`un"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "108 Al-Kauthar"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "109 Al-Kafirun"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "110 Al-Nasr"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "111 Al-Lahab"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "112 Al-Ikhlas"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "113 Al-Falaq"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "114 Al-Nas"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+﻿{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "1 Al-Fatihah"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "In the name of Allah, the Beneficent, the Merciful",
+                           "All praise is due to Allah, the Lord of the Worlds",
+                           "The Beneficent, the Merciful",
+                           "Master of the Day of Judgment.",
+                           "Thee do we serve and Thee do we beseech for help",
+                           "Keep us on the right path",
+                           "The path of those upon whom Thou hast bestowed favors. Not (the path) of those upon whom Thy wrath is brought down, nor of those who go astray"
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

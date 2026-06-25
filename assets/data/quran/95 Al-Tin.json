@@ -1,0 +1,37 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "95 Al-Tin"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "I swear by the fig and the olive,",
+                           "And mount Sinai,",
+                           "Certainly We created man in the best make.",
+                           "Then We render him the lowest of the low.",
+                           "Except those who believe and do good, so they shall have a reward never to be cut off.",
+                           "Then who can give you the lie after (this) about the judgment?",
+                           "Is not Allah the best of the Judges?"
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

@@ -1,0 +1,36 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "109 Al-Kafirun"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Say: O unbelievers!",
+                           "I do not serve that which you serve,",
+                           "Nor do you serve Him Whom I serve:",
+                           "Nor am I going to serve that which you serve,",
+                           "Nor are you going to serve Him Whom I serve:",
+                           "You shall have your religion and I shall have my religion."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

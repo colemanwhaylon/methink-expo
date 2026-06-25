@@ -1,0 +1,33 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "103 Al-`Asr"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "I swear by the time,",
+                           "Most surely man is in loss,",
+                           "Except those who believe and do good, and enjoin on each other truth, and enjoin on each other patience."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

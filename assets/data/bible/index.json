@@ -1,0 +1,353 @@
+{
+   "bible": {
+      "@attributes": {
+         "translation": "ASV"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Old"
+            },
+            "book": [
+              {
+                 "@attributes": {
+                    "name": "Genesis"
+                 }
+              },
+              {
+                  "@attributes": {
+                     "name": "Exodus"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Leviticus"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Numbers"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Deuteronomy"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Joshua"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Judges"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Ruth"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Samuel"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Samuel"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Kings"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Kings"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Chronicles"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Chronicles"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Ezra"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Nehemiah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Esther"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Job"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Psalms"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Proverbs"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Ecclesiastes"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Solomon"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Isaiah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Jeremiah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Lamentations"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Ezekiel"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Daniel"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Hosea"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Joel"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Amos"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Obadiah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Jonah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Micah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Nahum"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Habakkuk"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Zephaniah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Haggai"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Zechariah"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Malachi"
+                  }
+               }
+            ]
+         },
+         {
+            "@attributes": {
+               "name": "New"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "Matthew"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Mark"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Luke"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "John"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Acts"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Romans"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Corinthians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Corinthians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Galatians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Ephesians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Philippians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Colossians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Thessalonians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Thessalonians"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Timothy"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Timothy"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Titus"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Philemon"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Hebrews"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "James"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 Peter"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 Peter"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "1 John"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "2 John"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "3 John"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Jude"
+                  }
+               },
+               {
+                  "@attributes": {
+                     "name": "Revelation"
+                  }
+               }
+            ]
+         }
+      ]
+   }
+}

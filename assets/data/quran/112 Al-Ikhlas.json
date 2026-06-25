@@ -1,0 +1,34 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "112 Al-Ikhlas"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Say: He, Allah, is One.",
+                           "Allah is He on Whom all depend.",
+                           "He begets not, nor is He begotten.",
+                           "And none is like Him."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

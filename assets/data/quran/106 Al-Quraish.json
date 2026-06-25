@@ -1,0 +1,34 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "106 Al-Quraish"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "For the protection of the Qureaish",
+                           "Their protection during their trading caravans in the winter and the summer",
+                           "So let them serve the Lord of this House",
+                           "Who feeds them against hunger and gives them security against fear."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

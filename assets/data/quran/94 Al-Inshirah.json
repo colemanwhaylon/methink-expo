@@ -1,0 +1,38 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "94 Al-Inshirah"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Have We not expanded for you your breast,",
+                           "And taken off from you your burden,",
+                           "Which pressed heavily upon your back,",
+                           "And exalted for you your esteem?",
+                           "Surely with difficulty is ease.",
+                           "With difficulty is surely ease.",
+                           "So when you are free, nominate.",
+                           "And make your Lord your exclusive object."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

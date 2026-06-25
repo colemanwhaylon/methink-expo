@@ -1,0 +1,33 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "110 Al-Nasr"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "When there comes the help of Allah and the victory,",
+                           "And you see men entering the religion of Allah in companies,",
+                           "Then celebrate the praise of your Lord, and ask His forgiveness; surely He is oft-returning (to mercy)."
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

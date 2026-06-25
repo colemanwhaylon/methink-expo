@@ -1,0 +1,33 @@
+{
+   "quran": {
+      "@attributes": {
+         "translation": "English"
+      },
+      "testament": [
+         {
+            "@attributes": {
+               "name": "Suras"
+            },
+            "book": [
+               {
+                  "@attributes": {
+                     "name": "108 Al-Kauthar"
+                  },
+                  "chapter": [
+                     {
+                        "@attributes": {
+                           "number": "1"
+                        },
+                        "verse": [
+                           "Surely We have given you Kausar,",
+                           "Therefore pray to your Lord and make a sacrifice.",
+                           "Surely your enemy is the one who shall be without posterity,"
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}
