@@ -19,9 +19,11 @@ import { Screen } from '@/components/Screen';
 import { ListRow } from '@/components/ListRow';
 import { AudioPlayerBar } from '@/components/AudioPlayerBar';
 import { getPage, theme, type MusicPage } from '@/config/appConfig';
+import { useResponsive } from '@/theme/responsive';
 
 export default function MusicScreen() {
   const page = getPage('music') as MusicPage;
+  const r = useResponsive('default');
   const collection = page.collections[0];
   const tracks = collection.tracks;
 
@@ -96,11 +98,13 @@ export default function MusicScreen() {
 
   return (
     <View style={styles.root}>
-      <Screen title="Music" scroll contentStyle={styles.scrollContent}>
+      <Screen title="Music" variant="default" scroll contentStyle={styles.scrollContent}>
         <View style={styles.headerCard}>
-          <Text style={styles.collectionName}>{collection.name}</Text>
-          <Text style={styles.artist}>{collection.artist}</Text>
-          <Text style={styles.description}>{collection.description}</Text>
+          <Text style={[styles.collectionName, { fontSize: r.type.h1 }]}>{collection.name}</Text>
+          <Text style={[styles.artist, { fontSize: r.type.body }]}>{collection.artist}</Text>
+          <Text style={[styles.description, { fontSize: r.type.body, lineHeight: r.lineHeight }]}>
+            {collection.description}
+          </Text>
         </View>
 
         {tracks.map((track, index) => {
@@ -109,6 +113,7 @@ export default function MusicScreen() {
             <ListRow
               key={`${track.title}-${index}`}
               title={track.title}
+              titleSize={r.type.body}
               onPress={() => handleSelect(index)}
               showChevron={false}
               right={
@@ -157,8 +162,8 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
   },
-  collectionName: { color: theme.colors.text, fontSize: 20, fontWeight: '700' },
-  artist: { color: theme.colors.muted, fontSize: 14, marginTop: 4 },
-  description: { color: theme.colors.muted, fontSize: 13, marginTop: 8, lineHeight: 18 },
+  collectionName: { color: theme.colors.text, fontWeight: '700' },
+  artist: { color: theme.colors.muted, marginTop: 4 },
+  description: { color: theme.colors.muted, marginTop: 8 },
   indicator: { color: theme.colors.accent, fontSize: 18, marginLeft: 8 },
 });

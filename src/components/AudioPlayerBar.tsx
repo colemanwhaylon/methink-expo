@@ -5,10 +5,18 @@
  * controls (prev / play-pause / next) and a thin progress track. All playback
  * state is owned by the parent (music/index.tsx) which drives this from
  * expo-audio's useAudioPlayerStatus.
+ *
+ * The bar itself is full-bleed (it spans the pinned bottom of the window), but
+ * its inner content is centered and capped at the same max width as the rest of
+ * the screen content so controls line up with the track list on desktop.
  */
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { theme } from '@/config/appConfig';
+import { interactionStyle, useResponsive } from '@/theme/responsive';
+
+/** Max content width — matches the 'default' Screen variant (1040). */
+const MAX_CONTENT_WIDTH = 1040;
 
 type Props = {
   /** Title of the selected track, or null when nothing is selected yet. */
@@ -45,38 +53,46 @@ export function AudioPlayerBar({
   onPrev,
   onNext,
 }: Props) {
+  const r = useResponsive('default');
   const hasTrack = title !== null;
   const progress = duration > 0 ? Math.min(position / duration, 1) : 0;
 
   return (
     <View style={styles.bar}>
-      {/* progress track */}
+      {/* progress track (full-bleed) */}
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
       </View>
 
-      <View style={styles.row}>
-        <View style={styles.info}>
-          <Text style={hasTrack ? styles.title : styles.placeholder} numberOfLines={1}>
-            {hasTrack ? title : 'Select a track'}
-          </Text>
-          {hasTrack ? (
-            <Text style={styles.time}>
-              {formatTime(position)} / {formatTime(duration)}
+      {/* Inner content centered + capped to match screen content width. */}
+      <View style={[styles.inner, { paddingHorizontal: r.padding }]}>
+        <View style={styles.row}>
+          <View style={styles.info}>
+            <Text
+              style={[hasTrack ? styles.title : styles.placeholder, { fontSize: r.type.body }]}
+              numberOfLines={1}
+            >
+              {hasTrack ? title : 'Select a track'}
             </Text>
-          ) : null}
-        </View>
+            {hasTrack ? (
+              <Text style={[styles.time, { fontSize: r.type.small }]}>
+                {formatTime(position)} / {formatTime(duration)}
+              </Text>
+            ) : null}
+          </View>
 
-        <View style={styles.controls}>
-          <ControlButton label="Previous" glyph="⏮" onPress={onPrev} disabled={!canPrev} />
-          <ControlButton
-            label={playing ? 'Pause' : 'Play'}
-            glyph={playing ? '⏸' : '▶'}
-            onPress={onTogglePlay}
-            disabled={!hasTrack}
-            primary
-          />
-          <ControlButton label="Next" glyph="⏭" onPress={onNext} disabled={!canNext} />
+          <View style={styles.controls}>
+            <ControlButton label="Previous" glyph="⏮" glyphSize={r.type.title} onPress={onPrev} disabled={!canPrev} />
+            <ControlButton
+              label={playing ? 'Pause' : 'Play'}
+              glyph={playing ? '⏸' : '▶'}
+              glyphSize={r.type.title}
+              onPress={onTogglePlay}
+              disabled={!hasTrack}
+              primary
+            />
+            <ControlButton label="Next" glyph="⏭" glyphSize={r.type.title} onPress={onNext} disabled={!canNext} />
+          </View>
         </View>
       </View>
     </View>
@@ -86,12 +102,13 @@ export function AudioPlayerBar({
 type ControlProps = {
   label: string;
   glyph: string;
+  glyphSize: number;
   onPress: () => void;
   disabled?: boolean;
   primary?: boolean;
 };
 
-function ControlButton({ label, glyph, onPress, disabled, primary }: ControlProps) {
+function ControlButton({ label, glyph, glyphSize, onPress, disabled, primary }: ControlProps) {
   return (
     <Pressable
       accessibilityRole="button"
@@ -100,14 +117,16 @@ function ControlButton({ label, glyph, onPress, disabled, primary }: ControlProp
       onPress={onPress}
       disabled={disabled}
       hitSlop={8}
-      style={({ pressed }) => [
+      style={({ hovered, focused, pressed }: any) => [
         styles.ctrl,
         primary && styles.ctrlPrimary,
-        pressed && !disabled ? styles.ctrlPressed : null,
-        disabled && styles.ctrlDisabled,
+        disabled ? styles.ctrlDisabled : styles.clickable,
+        !disabled ? interactionStyle({ hovered, focused, pressed }) : null,
       ]}
     >
-      <Text style={[styles.ctrlGlyph, primary && styles.ctrlGlyphPrimary]}>{glyph}</Text>
+      <Text style={[styles.ctrlGlyph, { fontSize: glyphSize }, primary && styles.ctrlGlyphPrimary]}>
+        {glyph}
+      </Text>
     </Pressable>
   );
 }
@@ -118,6 +137,11 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border,
     paddingTop: 0,
+  },
+  inner: {
+    width: '100%',
+    maxWidth: MAX_CONTENT_WIDTH,
+    alignSelf: 'center',
   },
   progressTrack: {
     height: 3,
@@ -131,27 +155,26 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 14,
     paddingVertical: 12,
   },
   info: { flex: 1, marginRight: 12 },
-  title: { color: theme.colors.text, fontSize: 15, fontWeight: '600' },
-  placeholder: { color: theme.colors.muted, fontSize: 15, fontStyle: 'italic' },
-  time: { color: theme.colors.muted, fontSize: 12, marginTop: 3 },
+  title: { color: theme.colors.text, fontWeight: '600' },
+  placeholder: { color: theme.colors.muted, fontStyle: 'italic' },
+  time: { color: theme.colors.muted, marginTop: 3 },
   controls: { flexDirection: 'row', alignItems: 'center' },
   ctrl: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 6,
   },
+  clickable: { cursor: 'pointer' },
   ctrlPrimary: {
     backgroundColor: theme.colors.accent,
   },
-  ctrlPressed: { opacity: 0.6 },
   ctrlDisabled: { opacity: 0.35 },
-  ctrlGlyph: { color: theme.colors.text, fontSize: 20, lineHeight: 22 },
+  ctrlGlyph: { color: theme.colors.text, lineHeight: 24 },
   ctrlGlyphPrimary: { color: theme.colors.onAccent },
 });

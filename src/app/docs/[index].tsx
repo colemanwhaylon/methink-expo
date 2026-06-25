@@ -16,10 +16,12 @@ import { ActivityIndicator, Platform, Pressable, StyleSheet, Text, View } from '
 import { EmbeddedWeb } from '@/components/EmbeddedWeb';
 import { Screen } from '@/components/Screen';
 import { getPage, theme, type DocsPage } from '@/config/appConfig';
+import { interactionStyle, useResponsive } from '@/theme/responsive';
 
 export default function DocViewerScreen() {
   const { index } = useLocalSearchParams<{ index: string }>();
   const doc = (getPage('docs') as DocsPage).documents[Number(index)];
+  const r = useResponsive('default');
 
   const [uri, setUri] = useState<string | null>(null);
 
@@ -39,7 +41,9 @@ export default function DocViewerScreen() {
   if (!doc) {
     return (
       <Screen title="Not found">
-        <Text style={styles.message}>That document is not available.</Text>
+        <Text style={[styles.message, { fontSize: r.type.body }]}>
+          That document is not available.
+        </Text>
       </Screen>
     );
   }
@@ -47,7 +51,7 @@ export default function DocViewerScreen() {
   // Asset still resolving.
   if (!uri) {
     return (
-      <Screen title={doc.title}>
+      <Screen title={doc.title} variant="default">
         <View style={styles.center}>
           <ActivityIndicator color={theme.colors.text} />
         </View>
@@ -55,28 +59,36 @@ export default function DocViewerScreen() {
     );
   }
 
-  // Web: browsers render PDFs inline; embed via iframe.
+  // Web: browsers render PDFs inline; embed via iframe filling the column height.
   if (Platform.OS === 'web') {
     return (
-      <Screen title={doc.title}>
-        <EmbeddedWeb uri={uri} title={doc.title} style={styles.flex} />
+      <Screen title={doc.title} variant="default">
+        <View style={styles.flex}>
+          <EmbeddedWeb uri={uri} title={doc.title} style={styles.flex} />
+        </View>
       </Screen>
     );
   }
 
   // Native: hand off to the system browser for a reliable PDF experience.
   return (
-    <Screen title={doc.title}>
+    <Screen title={doc.title} variant="default">
       <View style={styles.center}>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>{doc.title}</Text>
-          <Text style={styles.cardDescription}>{doc.description}</Text>
+          <Text style={[styles.cardTitle, { fontSize: r.type.h2 }]}>{doc.title}</Text>
+          <Text style={[styles.cardDescription, { fontSize: r.type.body }]}>
+            {doc.description}
+          </Text>
           <Pressable
             accessibilityRole="button"
             onPress={() => WebBrowser.openBrowserAsync(uri)}
-            style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
+            style={({ hovered, focused, pressed }: any) => [
+              styles.button,
+              hovered ? styles.buttonHover : null,
+              interactionStyle({ focused, pressed }),
+            ]}
           >
-            <Text style={styles.buttonLabel}>Open document</Text>
+            <Text style={[styles.buttonLabel, { fontSize: r.type.title }]}>Open document</Text>
           </Pressable>
         </View>
       </View>
@@ -89,38 +101,37 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   message: {
     color: theme.colors.text,
-    fontSize: 16,
     textAlign: 'center',
     marginTop: 24,
   },
   card: {
     width: '100%',
+    maxWidth: 520,
     backgroundColor: theme.colors.surface,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border,
     borderRadius: 16,
-    padding: 20,
+    padding: 24,
     alignItems: 'center',
   },
   cardTitle: {
     color: theme.colors.text,
-    fontSize: 20,
     fontWeight: '700',
     textAlign: 'center',
   },
   cardDescription: {
     color: theme.colors.muted,
-    fontSize: 14,
     textAlign: 'center',
     marginTop: 8,
   },
   button: {
-    marginTop: 20,
+    marginTop: 24,
     backgroundColor: theme.colors.accent,
     borderRadius: 12,
-    paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingHorizontal: 28,
+    paddingVertical: 14,
+    cursor: 'pointer',
   },
-  buttonPressed: { opacity: 0.7 },
-  buttonLabel: { color: theme.colors.onAccent, fontSize: 16, fontWeight: '700' },
+  buttonHover: { opacity: 0.9 },
+  buttonLabel: { color: theme.colors.onAccent, fontWeight: '700' },
 });

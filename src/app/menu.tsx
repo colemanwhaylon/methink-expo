@@ -9,7 +9,7 @@ export default function MenuScreen() {
   const page = getPage('menu') as MenuPage;
 
   return (
-    <Screen title="Menu">
+    <Screen title="Menu" variant="full">
       <EmbeddedWeb uri={page.url} title="Menu" style={{ flex: 1 }} />
     </Screen>
   );
