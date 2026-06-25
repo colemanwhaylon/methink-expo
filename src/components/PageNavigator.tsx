@@ -6,10 +6,18 @@
  * PDF viewer (pages). `index` is 0-based; the box shows/accepts 1-based numbers.
  */
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
 
 import { theme } from '@/config/appConfig';
-import { interactionStyle } from '@/theme/responsive';
+import { interactionStyle, useResponsive } from '@/theme/responsive';
 
 type Props = {
   index: number;
@@ -50,6 +58,7 @@ function Step({
 }
 
 export function PageNavigator({ index, total, onChange, label, fontSize = 16 }: Props) {
+  const r = useResponsive();
   const [draft, setDraft] = useState(String(index + 1));
 
   // Keep the box in sync when the index changes from elsewhere (prev/next).
@@ -68,28 +77,50 @@ export function PageNavigator({ index, total, onChange, label, fontSize = 16 }: 
 
   const go = (next: number) => onChange(Math.max(0, Math.min(total - 1, next)));
 
+  const pageBox = (style?: StyleProp<ViewStyle>) => (
+    <View style={[styles.box, style]}>
+      <TextInput
+        value={draft}
+        onChangeText={setDraft}
+        onSubmitEditing={commit}
+        onBlur={commit}
+        keyboardType="number-pad"
+        returnKeyType="go"
+        selectTextOnFocus
+        accessibilityLabel="Go to number"
+        style={[styles.input, { fontSize }]}
+        underlineColorAndroid="transparent"
+      />
+      <Text numberOfLines={1} style={[styles.total, { fontSize }]}>
+        / {total}
+      </Text>
+    </View>
+  );
+
+  if (r.bp === 'sm') {
+    return (
+      <View style={styles.mobileBar}>
+        {label ? <Text style={[styles.label, styles.mobileLabel, { fontSize }]}>{label}</Text> : null}
+        <View style={styles.mobileRow}>
+          <Step glyph="‹" a11y="Previous" disabled={index <= 0} onPress={() => go(index - 1)} />
+          {pageBox(styles.mobileBox)}
+          <Step glyph="›" a11y="Next" disabled={index >= total - 1} onPress={() => go(index + 1)} />
+        </View>
+        <View style={styles.mobileRow}>
+          <Step glyph="«" a11y="First" disabled={index <= 0} onPress={() => go(0)} />
+          <View style={styles.mobileBoxSpacer} />
+          <Step glyph="»" a11y="Last" disabled={index >= total - 1} onPress={() => go(total - 1)} />
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.bar}>
       {label ? <Text style={[styles.label, { fontSize }]}>{label}</Text> : null}
       <Step glyph="«" a11y="First" disabled={index <= 0} onPress={() => go(0)} />
       <Step glyph="‹" a11y="Previous" disabled={index <= 0} onPress={() => go(index - 1)} />
-
-      <View style={styles.box}>
-        <TextInput
-          value={draft}
-          onChangeText={setDraft}
-          onSubmitEditing={commit}
-          onBlur={commit}
-          keyboardType="number-pad"
-          returnKeyType="go"
-          selectTextOnFocus
-          accessibilityLabel="Go to number"
-          style={[styles.input, { fontSize }]}
-          underlineColorAndroid="transparent"
-        />
-        <Text style={[styles.total, { fontSize }]}>/ {total}</Text>
-      </View>
-
+      {pageBox()}
       <Step glyph="›" a11y="Next" disabled={index >= total - 1} onPress={() => go(index + 1)} />
       <Step glyph="»" a11y="Last" disabled={index >= total - 1} onPress={() => go(total - 1)} />
     </View>
@@ -105,6 +136,21 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   label: { color: theme.colors.muted, marginRight: 2 },
+  mobileBar: {
+    alignItems: 'stretch',
+    gap: 8,
+    paddingVertical: 8,
+  },
+  mobileLabel: {
+    marginRight: 0,
+    textAlign: 'center',
+  },
+  mobileRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
   step: {
     minWidth: 40,
     height: 40,
@@ -125,6 +171,13 @@ const styles = StyleSheet.create({
     gap: 6,
     paddingHorizontal: 6,
   },
+  mobileBox: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  mobileBoxSpacer: {
+    flex: 1,
+  },
   input: {
     minWidth: 48,
     height: 40,
@@ -137,5 +190,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
   },
-  total: { color: theme.colors.muted },
+  total: { color: theme.colors.muted, flexShrink: 0, minWidth: 34 },
 });
