@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "jimp": "^1.6.1",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -41,6 +42,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "gen:data": "node ./scripts/gen-data.mjs",
+    "gen:icons": "node ./scripts/gen-icons.mjs",
     "build:web": "expo export -p web",
     "vercel-build": "expo export -p web",
     "typecheck": "tsc --noEmit",
