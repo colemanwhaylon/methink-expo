@@ -6,6 +6,7 @@
  * get a breakpoint, a centered max content width, a scaled type ramp, spacing,
  * and the content width available for grid math.
  */
+import { useEffect, useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 
 export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl';
@@ -66,7 +67,14 @@ export type Responsive = {
 };
 
 export function useResponsive(variant: ScreenVariant = 'default'): Responsive {
-  const { width } = useWindowDimensions();
+  const { width: rawWidth } = useWindowDimensions();
+  // Static export renders HTML on the server with no window. Use a deterministic
+  // mobile width until mounted so the server HTML and the first client render
+  // match (no hydration mismatch / React #418); then adopt the real width.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const width = mounted ? rawWidth : 390;
+
   const bp = breakpointFor(width);
   const isDesktop = width >= DESKTOP_MIN;
 

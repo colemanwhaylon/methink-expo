@@ -47,6 +47,8 @@ export function Screen({
   const r = useResponsive(variant);
   const canGoBack = showBack ?? !brandTitle;
   const isFull = variant === 'full';
+  // r.isDesktop is mount-stable (see useResponsive), so this is hydration-safe.
+  const isDesktop = r.isDesktop;
 
   // The centered content column.
   const column: ViewStyle = {
@@ -76,14 +78,14 @@ export function Screen({
       <View style={styles.overlay} />
       <SafeAreaView style={styles.flex} edges={['top', 'left', 'right']}>
         <View style={styles.shell}>
-          {r.isDesktop ? <NavSidebar /> : null}
+          {isDesktop ? <NavSidebar /> : null}
 
           <View style={styles.flex}>
             {/* Header: hidden on desktop home (sidebar carries the brand); a slim
                 title bar elsewhere. On mobile, always a header with back/brand. */}
-            {r.isDesktop && brandTitle ? null : (
-              <View style={[styles.header, { paddingHorizontal: r.isDesktop ? 24 : 12 }]}>
-                {canGoBack && !r.isDesktop ? (
+            {isDesktop && brandTitle ? null : (
+              <View style={[styles.header, { paddingHorizontal: isDesktop ? 24 : 12 }]}>
+                {canGoBack && !isDesktop ? (
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel="Go back"
@@ -101,7 +103,7 @@ export function Screen({
                   <View style={styles.backBtn} />
                 )}
 
-                {brandTitle && !r.isDesktop ? (
+                {brandTitle && !isDesktop ? (
                   <Image
                     source={theme.titleImage}
                     style={styles.titleImage}

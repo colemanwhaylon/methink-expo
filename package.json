@@ -19,6 +19,7 @@
     "expo-symbols": "~56.0.6",
     "expo-system-ui": "~56.0.5",
     "expo-web-browser": "~56.0.5",
+    "pdfjs-dist": "^6.0.227",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.85.3",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/react": "~19.2.2",
     "jimp": "^1.6.1",
+    "playwright": "^1.61.1",
     "typescript": "~6.0.3"
   },
   "scripts": {
