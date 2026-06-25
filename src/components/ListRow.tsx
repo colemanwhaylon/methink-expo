@@ -2,6 +2,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { theme } from '@/config/appConfig';
+import { interactionStyle } from '@/theme/responsive';
 
 type Props = {
   title: string;
@@ -9,21 +10,36 @@ type Props = {
   onPress?: () => void;
   right?: React.ReactNode;
   showChevron?: boolean;
+  titleSize?: number;
+  subtitleSize?: number;
 };
 
-export function ListRow({ title, subtitle, onPress, right, showChevron = true }: Props) {
+export function ListRow({
+  title,
+  subtitle,
+  onPress,
+  right,
+  showChevron = true,
+  titleSize = 16,
+  subtitleSize = 13,
+}: Props) {
   return (
     <Pressable
       accessibilityRole={onPress ? 'button' : undefined}
       onPress={onPress}
-      style={({ pressed }) => [styles.row, pressed && onPress ? styles.pressed : null]}
+      style={({ hovered, focused, pressed }: any) => [
+        styles.row,
+        onPress && hovered ? styles.rowHover : null,
+        onPress ? interactionStyle({ focused, pressed }) : null,
+        onPress ? styles.clickable : null,
+      ]}
     >
       <View style={styles.texts}>
-        <Text style={styles.title} numberOfLines={2}>
+        <Text style={[styles.title, { fontSize: titleSize }]} numberOfLines={2}>
           {title}
         </Text>
         {subtitle ? (
-          <Text style={styles.subtitle} numberOfLines={2}>
+          <Text style={[styles.subtitle, { fontSize: subtitleSize }]} numberOfLines={2}>
             {subtitle}
           </Text>
         ) : null}
@@ -42,13 +58,16 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border,
     borderRadius: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
     marginBottom: 10,
   },
-  pressed: { opacity: 0.6 },
+  clickable: {
+    cursor: 'pointer',
+  },
+  rowHover: { borderColor: theme.colors.accent, backgroundColor: 'rgba(0,0,0,0.55)' },
   texts: { flex: 1 },
-  title: { color: theme.colors.text, fontSize: 16, fontWeight: '600' },
-  subtitle: { color: theme.colors.muted, fontSize: 13, marginTop: 3 },
+  title: { color: theme.colors.text, fontWeight: '600' },
+  subtitle: { color: theme.colors.muted, marginTop: 3 },
   chevron: { color: theme.colors.text, fontSize: 24, marginLeft: 8 },
 });

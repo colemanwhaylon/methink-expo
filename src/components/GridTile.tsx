@@ -5,21 +5,26 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ImageSourcePropType } from 'react-native';
 
 import { theme } from '@/config/appConfig';
+import { interactionStyle } from '@/theme/responsive';
 
-type Props = { href: string; title: string; icon: ImageSourcePropType };
+type Props = { href: string; title: string; icon: ImageSourcePropType; labelSize?: number };
 
-export function GridTile({ href, title, icon }: Props) {
+export function GridTile({ href, title, icon, labelSize = 14 }: Props) {
   return (
     <Link href={href as any} asChild>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={title}
-        style={({ pressed }) => [styles.tile, pressed && styles.pressed]}
+        style={({ hovered, focused, pressed }: any) => [
+          styles.tile,
+          hovered && styles.tileHover,
+          interactionStyle({ hovered, focused, pressed }),
+        ]}
       >
         <View style={styles.iconWrap}>
           <Image source={icon} style={styles.icon} contentFit="contain" />
         </View>
-        <Text style={styles.label} numberOfLines={1}>
+        <Text style={[styles.label, { fontSize: labelSize }]} numberOfLines={1}>
           {title}
         </Text>
       </Pressable>
@@ -32,22 +37,25 @@ const styles = StyleSheet.create({
     flex: 1,
     aspectRatio: 1,
     margin: 6,
-    borderRadius: 14,
+    borderRadius: 16,
     backgroundColor: theme.colors.surface,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+    padding: 12,
+    cursor: 'pointer',
   },
-  pressed: { opacity: 0.6, transform: [{ scale: 0.97 }] },
-  iconWrap: { flex: 1, width: '70%', alignItems: 'center', justifyContent: 'center' },
+  tileHover: {
+    borderColor: theme.colors.accent,
+    backgroundColor: 'rgba(0,0,0,0.55)',
+  },
+  iconWrap: { flex: 1, width: '72%', alignItems: 'center', justifyContent: 'center' },
   icon: { width: '100%', height: '100%' },
   label: {
     color: theme.colors.text,
-    fontSize: 14,
     fontWeight: '600',
-    marginTop: 6,
+    marginTop: 8,
     textAlign: 'center',
   },
 });
