@@ -11,7 +11,7 @@ a modern, native‑feeling stack: **Expo SDK 56 + Expo Router + React Native Web
 
 ## Screens
 
-All nine pages the original app enabled, plus Home and About:
+Seven content pages, plus Home and About:
 
 | Screen | Content (all bundled, static) |
 | --- | --- |
@@ -20,8 +20,6 @@ All nine pages the original app enabled, plus Home and About:
 | **Docs** | 7 bundled PDFs (Herbal, Tai Chi, Diamond Sutra, Book of Tea, Wicca, Hindu, Mormonism) |
 | **Call** | Click‑to‑call contact (`tel:`) |
 | **Bible / Quran / Torah** | Full offline readers — 66 + 114 + 5 books, chapter selector, selectable verses |
-| **Menu** | Embedded external web page |
-| **Twitter** | Embedded `@reubenremone` X timeline (with open‑in‑browser fallback) |
 | **Music** | "Tupac The Greatest" album — 8 bundled MP3s with a full audio player |
 | **About** | App info + contact |
 

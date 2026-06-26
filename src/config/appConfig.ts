@@ -62,10 +62,6 @@ export type CallPage = PageBase & { kind: 'click_to_call'; contacts: CallContact
 
 export type ScripturePage = PageBase & { kind: 'scripture'; dataset: DatasetId };
 
-export type MenuPage = PageBase & { kind: 'menu'; url: string };
-
-export type TwitterPage = PageBase & { kind: 'twitter'; handles: string[] };
-
 export type Track = { title: string; asset: number };
 export type MusicCollection = {
   name: string;
@@ -80,8 +76,6 @@ export type Page =
   | DocsPage
   | CallPage
   | ScripturePage
-  | MenuPage
-  | TwitterPage
   | MusicPage;
 
 /* --------------------------------------------------------------- content --- */
@@ -156,26 +150,6 @@ const torah: ScripturePage = {
   dataset: 'torah',
 };
 
-const menu: MenuPage = {
-  slug: 'menu',
-  name: 'menu',
-  title: 'Menu',
-  order: 73,
-  icon: require('../../assets/branding/menu0.png'),
-  kind: 'menu',
-  url: 'https://www.bhg.com/gardening/plant-dictionary/herb/',
-};
-
-const twitter: TwitterPage = {
-  slug: 'twitter',
-  name: 'twitter',
-  title: 'Twitter',
-  order: 79,
-  icon: require('../../assets/branding/twitter_sketched_transparent.png'),
-  kind: 'twitter',
-  handles: ['reubenremone'],
-};
-
 const bible: ScripturePage = {
   slug: 'bible',
   name: 'bible',
@@ -222,8 +196,8 @@ const music: MusicPage = {
   ],
 };
 
-/** All enabled pages, in the original home-grid order. (Videos is omitted: on:false) */
-export const pages: Page[] = [catalog, documents, call, torah, menu, twitter, bible, quran, music].sort(
+/** All enabled pages, in the original home-grid order. */
+export const pages: Page[] = [catalog, documents, call, torah, bible, quran, music].sort(
   (a, b) => a.order - b.order
 );
 
